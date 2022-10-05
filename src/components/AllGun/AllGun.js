@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ShowGun from '../ShowGun/ShowGun';
 import './AllGun.css'
-const AllGun = () => {
+const AllGun = ({addToCart}) => {
     const [guns, setGuns] = useState([])
 
     useEffect(() =>{
@@ -17,6 +17,7 @@ const AllGun = () => {
                 guns.map(gun => <ShowGun 
                     key = {gun.id}
                     gun = {gun}
+                    addToCart = {addToCart}
                 ></ShowGun>)
             }
             </div>

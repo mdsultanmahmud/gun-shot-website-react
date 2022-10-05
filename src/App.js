@@ -1,14 +1,25 @@
 
+import { useState } from 'react';
 import './App.css';
 import AllGun from './components/AllGun/AllGun';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
-
+let [count, setCount] = useState(0)
+let [prevPrice, setprevPrice] = useState(0)
+let newPrice = 0
+const addToCart = (price) => {
+  count++
+  newPrice = prevPrice + Number(price)
+  setCount(count)
+  setprevPrice(newPrice)
+  localStorage.setItem('price', prevPrice)
+  localStorage.setItem('cartItem', count)
+}
   return (
     <div className="App">
-      <Navbar></Navbar>
-      <AllGun></AllGun>
+      <Navbar count = {count} price={prevPrice}></Navbar>
+      <AllGun addToCart = {addToCart}></AllGun>
     </div>
   );
 }
