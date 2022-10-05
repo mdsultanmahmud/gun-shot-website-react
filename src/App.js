@@ -19,6 +19,7 @@ const addToCart = (price) => {
   return (
     <div className="App">
       <Navbar count = {count} price={prevPrice}></Navbar>
+      <h2 className='uppercase text-2xl my-4'>Welcome To our shot gun store</h2>
       <AllGun addToCart = {addToCart}></AllGun>
     </div>
   );
